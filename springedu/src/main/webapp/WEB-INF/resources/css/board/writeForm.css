@@ -16,21 +16,19 @@
         width: 70px;
         letter-spacing: 0.3em; /*자간, 부모요소의 폰트의 30% */
       }
-      form input[name="btitle"] {
-        width: 80%;
-      }
-      form input[name="bid"] {
-        width: 50%;
-      }
+   
 
       form ul {
         padding-left: 0px;
       }
       form ul > li {
-        display: flex;
-        margin: 5px;
-        width: 100%;
+       display: grid;
+        grid-template-columns: 15% 1fr;
+        margin: 10px 0;
       }
+      form ul>li span{
+			grid-column:2/3;
+			}
       form ul > li:nth-last-child(1) {
         display: flex;
 
@@ -41,6 +39,12 @@
       }
       form #bcontent {
         width: 100%;
+      }
+      form .svr_msg{
+        color: red;
+         font-weight: bold;
+        font-size: 0.8em;
+        
       }
       .btn {
         display: inline-block;

@@ -19,8 +19,8 @@ public class MeasuringExcuteTime {
 	private static final Logger logger = 
 			LoggerFactory.getLogger(MeasuringExcuteTime.class);
 	
-	@Around("execution(* com.kh.portfolio.member..*.*(..))")
-	public Object measuringMethodRoundingTime(ProceedingJoinPoint joinPoint) {
+	@Around("execution(* com.kh.portfolio.board..*.*(..))")
+	public Object measuringMethodRoundingTime(ProceedingJoinPoint joinPoint) throws Throwable {
 		Object result = null;
 		Signature signature = joinPoint.getSignature();
 		StringBuilder methodName = new StringBuilder();
@@ -36,7 +36,7 @@ public class MeasuringExcuteTime {
 			result = joinPoint.proceed();
 		} catch (Throwable e) {
 			logger.info("[Log.Around] Exception:"+methodName);
-			e.printStackTrace();
+		throw e;
 		}finally{
 			logger.info("[Log.Around] finally:" + methodName);
 			
